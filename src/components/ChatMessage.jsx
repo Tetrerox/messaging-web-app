@@ -3,7 +3,7 @@ const ChatMessage = ({ message, uid }) => {
 
   return (
     <div className={`message ${messageClass}`}>
-      <img src={message.profilePic} />
+      <img src={message.profilePic} alt="Display Picture" />
       <p>{message.text}</p>
     </div>
   );
