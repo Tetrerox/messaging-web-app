@@ -47,6 +47,11 @@ body {
   padding: 20px;
 }
 
+.messages {
+  margin-top: 10px;
+  margin-bottom: 80px;
+}
+
 ::-webkit-scrollbar {
   width: 0.25rem;
 }
@@ -83,13 +88,13 @@ body {
   border: none;
   text-align: start;
   font-size: 15px;
-  max-width: 200px;
+  max-width: 220px;
+  border-radius: 10px;
 }
 
 .group:hover {
   cursor: pointer;
   background-color: var(--highlighted-group);
-  border-radius: 10px;
 }
 
 .searchBar {
