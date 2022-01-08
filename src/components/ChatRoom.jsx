@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db } from "../FirebaseConfig";
@@ -30,18 +30,29 @@ const ChatRoom = () => {
   const membersRef = doc(db, "rooms", group);
   const [members] = useDocumentDataOnce(membersRef);
 
+  const dummy = useRef(null);
+
+  const scrollToBottom = () => {
+    dummy.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
+
   const sendMessage = async (e) => {
     e.preventDefault();
 
+    let text = formValue;
+    setFormValue("");
+
     await addDoc(messagesRef, {
-      text: formValue,
+      text: text,
       createdAt: serverTimestamp(),
       createdBy: user.uid,
       profilePic: user.photoURL,
       displayName: user.displayName,
     });
-
-    setFormValue("");
   };
 
   return (
@@ -55,6 +66,8 @@ const ChatRoom = () => {
           messages.map((msg) => (
             <ChatMessage key={msg.id} message={msg} uid={user.uid} />
           ))}
+
+        <div ref={dummy} />
 
         {members && !members.members.includes(user.uid) && (
           <p>You are not a member of this group!</p>
