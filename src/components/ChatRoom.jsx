@@ -38,7 +38,7 @@ const ChatRoom = () => {
 
   useEffect(() => {
     scrollToBottom();
-  }, [messages]);
+  }, [messages, group]);
 
   const sendMessage = async (e) => {
     e.preventDefault();
