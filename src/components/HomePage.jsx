@@ -5,7 +5,7 @@ import SearchPage from "./SearchPage";
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="homePage">
       <Router>
         <Sidebar />
         <Routes>
