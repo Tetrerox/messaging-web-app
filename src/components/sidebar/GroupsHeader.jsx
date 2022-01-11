@@ -1,5 +1,5 @@
 import { IoIosAdd, IoIosArrowDown } from "react-icons/io";
-import { auth, db } from "../FirebaseConfig";
+import { auth, db } from "../../FirebaseConfig";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { arrayUnion, doc, setDoc, getDoc } from "firebase/firestore";
 

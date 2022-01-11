@@ -1,7 +1,7 @@
 import { auth } from "./FirebaseConfig";
 import { useAuthState } from "react-firebase-hooks/auth";
 import HomePage from "./components/HomePage";
-import SignIn from "./components/SignIn";
+import SignInPage from "./components/SignInPage";
 import ReactLoading from "react-loading";
 
 const App = () => {
@@ -11,7 +11,7 @@ const App = () => {
     return <ReactLoading type="spin" className="loading" color="#fff" />;
   }
 
-  return <div>{user ? <HomePage /> : <SignIn />}</div>;
+  return <div>{user ? <HomePage /> : <SignInPage />}</div>;
 };
 
 export default App;

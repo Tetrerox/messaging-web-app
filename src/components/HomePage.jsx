@@ -1,7 +1,7 @@
-import ChatRoom from "./ChatRoom";
-import Sidebar from "./Sidebar";
+import ChatRoom from "./chat/ChatRoom";
+import Sidebar from "./sidebar/Sidebar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import SearchPage from "./SearchPage";
+import SearchPage from "./searchpage/SearchPage";
 
 const HomePage = () => {
   return (
