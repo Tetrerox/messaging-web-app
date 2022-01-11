@@ -28,6 +28,7 @@ body {
 .chatRoom {
   padding: 2rem 0rem;
   height: calc(100vh - 4rem);
+  min-width: 45rem;
 }
 
 .chatRoom header {
@@ -45,7 +46,6 @@ body {
 .chatRoom form {
   display: flex;
   justify-content: center;
-  min-width: 50rem;
 }
 
 .chatRoom input {
@@ -278,6 +278,7 @@ body {
   background: var(--bg-text-sent);
   align-items: flex-end;
 }
+
 .received p {
   background: var(--bg-text);
   color: var(--text-primary);
