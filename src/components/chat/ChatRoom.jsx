@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 import Messages from "./Messages";
-import ChatRoomHeader from "./ChatRoomHeader";
 import MessagesForm from "./MessagesForm";
 
 const ChatRoom = () => {
@@ -8,7 +7,7 @@ const ChatRoom = () => {
 
   return (
     <div className="chatRoom">
-      <ChatRoomHeader group={group} />
+      <header className="chatRoomHeader"># {group}</header>
       <Messages group={group} />
       <MessagesForm group={group} />
     </div>

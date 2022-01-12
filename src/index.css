@@ -13,25 +13,6 @@
   --highlighted-group: #27292f;
   --bg-text: #27292e;
   --bg-text-sent: #387aff;
-
-  --bg: #242526;
-  --bg-accent: #484a4d;
-  --text-color: #dadce1;
-  --nav-size: 60px;
-  --border: 1px solid #474a4d;
-  --border-radius: 8px;
-  --speed: 500ms;
-}
-
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  color: var(--text-color);
-  text-decoration: none;
 }
 
 body {
@@ -53,23 +34,7 @@ body {
 .chatRoomHeader {
   font-size: 2.5rem;
   min-height: 5vh;
-  display: grid;
-  grid-template-columns: 1fr repeat(3, auto) 1fr;
-  grid-column-gap: 5px;
-  justify-items: center;
-}
-
-.chatRoomHeader li:nth-child(1) {
-  grid-column-start: 2;
-}
-.chatRoomHeader li:nth-child(2) {
-  grid-column-start: 5;
-}
-
-.dropdownButton {
-  display: flex;
-  gap: 0.5rem;
-  font-size: 2.2rem;
+  text-align: center;
 }
 
 .messages {
