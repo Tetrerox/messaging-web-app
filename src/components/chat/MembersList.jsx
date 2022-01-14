@@ -2,6 +2,7 @@ import { db } from "../../FirebaseConfig";
 import { doc, getDoc, onSnapshot } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import UserInfo from "../sidebar/UserInfo";
+import DeleteGroup from "./DeleteGroup";
 
 const MembersList = ({ group }) => {
   const [members, setMembers] = useState([]);
@@ -39,6 +40,7 @@ const MembersList = ({ group }) => {
           />
         ))}
       </div>
+      <DeleteGroup group={group} />
     </div>
   );
 };
