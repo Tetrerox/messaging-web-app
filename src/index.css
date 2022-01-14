@@ -32,6 +32,7 @@ body {
 .membersList {
   background-color: var(--bg-primary);
   flex: 0.2;
+  min-width: 18rem;
 }
 
 .membersList header {
@@ -80,7 +81,7 @@ body {
   outline: none;
   position: fixed;
   bottom: 3rem;
-  width: 60%;
+  width: clamp(20rem, 42%, 60rem);
   padding: 2rem;
 }
 

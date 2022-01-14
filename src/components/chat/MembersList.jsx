@@ -31,20 +31,13 @@ const MembersList = ({ group }) => {
     <div className="membersList">
       <header>Members</header>
       <div className="members">
-        {members.length > 0 ? (
-          members.map((member) => (
-            <UserInfo
-              key={member.key}
-              displayName={member.displayName}
-              photoURL={member.photoURL}
-            />
-          ))
-        ) : (
-          <p style={{ fontSize: "2rem" }}>
-            Click on the group name on the left to view the members in this
-            group.
-          </p>
-        )}
+        {members.map((member) => (
+          <UserInfo
+            key={member.key}
+            displayName={member.displayName}
+            photoURL={member.photoURL}
+          />
+        ))}
       </div>
     </div>
   );
