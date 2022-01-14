@@ -1,4 +1,4 @@
-import ChatRoom from "./chat/ChatRoom";
+import ChatRoomContainer from "./chat/ChatRoomContainer";
 import Sidebar from "./sidebar/Sidebar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SearchPage from "./searchpage/SearchPage";
@@ -10,7 +10,7 @@ const HomePage = () => {
         <Sidebar />
         <Routes>
           <Route path="/" element={<div></div>} />
-          <Route path="/g/:group" element={<ChatRoom />} />
+          <Route path="/g/:group" element={<ChatRoomContainer />} />
           <Route path="/search/:input" element={<SearchPage />} />
         </Routes>
       </Router>

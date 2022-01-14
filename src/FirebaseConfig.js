@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { getFirestore, doc, setDoc } from "firebase/firestore";
+import { getFirestore, doc, setDoc, arrayUnion } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -20,7 +20,7 @@ onAuthStateChanged(auth, async (user) => {
     await setDoc(
       doc(db, "users", user.uid),
       {
-        groups: [],
+        groups: arrayUnion(),
         displayName: user.displayName,
         photoURL: user.photoURL,
       },

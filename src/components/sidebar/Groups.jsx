@@ -12,7 +12,10 @@ const Groups = () => {
 
   return (
     <div className="groups">
-      {data && data.groups.map((group) => <Group key={group} title={group} />)}
+      {data &&
+        data.groups.map((group) => (
+          <Group key={`${group} key`} title={group} />
+        ))}
       {loading && <ReactLoading type="spin" className="loading" color="#fff" />}
     </div>
   );

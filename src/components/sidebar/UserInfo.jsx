@@ -1,13 +1,8 @@
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../FirebaseConfig";
-
-const UserInfo = () => {
-  const [user] = useAuthState(auth);
-
+const UserInfo = ({ displayName, photoURL }) => {
   return (
     <div className="userInfo">
-      <img src={user.photoURL} alt={user.displayName} />
-      <p>{user.displayName}</p>
+      <img src={photoURL} alt={displayName} />
+      <p>{displayName}</p>
     </div>
   );
 };

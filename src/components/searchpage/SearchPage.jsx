@@ -39,7 +39,7 @@ const SearchPage = () => {
         Only groups that you are not a member of will show.
       </p>
       {results.map((result) => (
-        <SearchResult key={result} result={result} />
+        <SearchResult key={`${result} key`} result={result} />
       ))}
     </div>
   );

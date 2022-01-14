@@ -1,13 +1,10 @@
-import { useParams } from "react-router-dom";
 import Messages from "./Messages";
 import MessagesForm from "./MessagesForm";
 
-const ChatRoom = () => {
-  let { group } = useParams();
-
+const ChatRoom = ({ group }) => {
   return (
     <div className="chatRoom">
-      <header className="chatRoomHeader"># {group}</header>
+      <header># {group}</header>
       <Messages group={group} />
       <MessagesForm group={group} />
     </div>
