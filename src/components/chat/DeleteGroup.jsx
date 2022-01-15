@@ -1,31 +1,65 @@
 import { MdDelete } from "react-icons/md";
 import { auth, db } from "../../FirebaseConfig";
-import { doc, getDoc } from "firebase/firestore";
-import { useEffect, useState } from "react";
+import {
+  arrayRemove,
+  collection,
+  deleteDoc,
+  doc,
+  getDoc,
+  getDocs,
+  writeBatch,
+  updateDoc,
+} from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
 
 const DeleteGroup = ({ group }) => {
   const [user] = useAuthState(auth);
-  const [isCreator, setIsCreator] = useState(false);
+  const docRef = doc(db, "rooms", group);
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    const getCreatorStatus = async () => {
-      let docSnapshot = await getDoc(doc(db, "rooms", group));
-      let creatorUid = docSnapshot.data().createdBy;
-      if (creatorUid === user.uid) {
-        setIsCreator(true);
+  const deleteGroup = async () => {
+    let docSnapshot = await getDoc(docRef);
+    let creatorUid = docSnapshot.data().createdBy;
+
+    if (creatorUid === user.uid) {
+      let members = docSnapshot.data().members;
+
+      const batch = writeBatch(db);
+
+      for (let i in members) {
+        batch.update(doc(db, "users", members[i]), {
+          groups: arrayRemove(group),
+        });
       }
-    };
 
-    getCreatorStatus();
-  }, [group]);
+      const querySnapshot = await getDocs(
+        collection(db, "rooms", group, "messages")
+      );
+      querySnapshot.forEach((msg) => {
+        batch.delete(msg.ref);
+      });
 
-  const deleteOrLeaveGroup = async () => {};
+      await batch.commit();
+
+      await deleteDoc(docRef);
+    } else {
+      await updateDoc(docRef, {
+        members: arrayRemove(user.uid),
+      });
+
+      await updateDoc(doc(db, "users", user.uid), {
+        groups: arrayRemove(group),
+      });
+    }
+
+    navigate("/");
+  };
 
   return (
-    <button className="deleteButton">
+    <button className="deleteButton" onClick={deleteGroup}>
       <MdDelete />
-      <p>{isCreator ? "Delete group" : "Leave Group"}</p>
+      <p>Delete group</p>
     </button>
   );
 };
