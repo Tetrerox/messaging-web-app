@@ -224,9 +224,12 @@ body {
 }
 
 .signInButton {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   color: var(--text-primary);
   font-size: 2rem;
-  padding: 1rem;
+  padding: 1rem 1.5rem;
   background-color: var(--highlighted-group);
   border-radius: 20px;
   border: none;
