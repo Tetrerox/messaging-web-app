@@ -11,3 +11,11 @@ Here is the tech stack that I used:
   - Firebase as a Backend-as-a-Service
   - Firebase Auth for authentication
   - Firebase Firestore for the database (NoSQL)
+
+## User Inteface 
+
+![Chat Image](docs/images/Chat.png)
+
+## Searching and joining groups (search input is "f")
+
+![Join Image](docs/images/Join.png)
